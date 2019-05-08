@@ -11,6 +11,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author yogesh.paisode
  */
-public interface ServiceRepository extends CrudRepository<Services, Integer>{
+public interface TestRepository extends CrudRepository<Services, Integer>{
     
 }
