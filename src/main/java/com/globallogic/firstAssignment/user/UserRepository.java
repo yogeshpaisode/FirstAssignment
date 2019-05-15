@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.globallogic.firstAssignment.test;
+package com.globallogic.firstAssignment.user;
 
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author yogesh.paisode
+ * @author yogesh
  */
-public interface TestRepository extends CrudRepository<Test, Integer>{
-    
+public interface UserRepository extends CrudRepository<User, Integer>{
 }

@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
  * @author yogesh.paisode
  */
 @Entity
-public class Services {
+public class Test {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
@@ -24,7 +24,7 @@ public class Services {
     private String name;
  
     @ManyToOne
-    private User user;
+    private TestUser user;
 
     public Integer getId() {
         return id;
@@ -42,11 +42,11 @@ public class Services {
         this.name = name;
     }
 
-    public User getUser() {
+    public TestUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(TestUser user) {
         this.user = user;
     }
 }
