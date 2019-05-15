@@ -18,25 +18,7 @@ public class UserDto {
     private double experiance;
     private String userName;
     private String password;
-    private String services;
-
-    public UserDto(String firstName, String lastName, String email, String phone, double experiance, String userName, String password, String services) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.experiance = experiance;
-        this.userName = userName;
-        this.password = password;
-        this.services = services;
-    }
-
-    public String getServices() {
-        return services;
-    }
-
-    public UserDto() {
-    }
+    private int[] services;
 
     public String getFirstName() {
         return firstName;
@@ -64,6 +46,24 @@ public class UserDto {
 
     public String getPassword() {
         return password;
+    }
+
+    public int[] getServices() {
+        return services;
+    }
+
+    public UserDto(String firstName, String lastName, String email, String phone, double experiance, String userName, String password, int[] services) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.experiance = experiance;
+        this.userName = userName;
+        this.password = password;
+        this.services = services;
+    }
+
+    public UserDto() {
     }
     
 }
