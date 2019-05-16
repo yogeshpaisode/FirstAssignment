@@ -6,29 +6,15 @@
 package com.globallogic.firstAssignment.userService;
 
 import com.globallogic.firstAssignment.services.Services;
-import com.globallogic.firstAssignment.user.User;
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 /**
  *
  * @author yogesh.paisode
  */
-@Entity
-public class UserService implements Serializable {
+public class RegisteredUserServices implements Serializable{
     
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
-
-    public UserService() {
-    }
-    
-    private String status;
 
     public int getId() {
         return id;
@@ -46,14 +32,6 @@ public class UserService implements Serializable {
         this.status = status;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Services getServices() {
         return services;
     }
@@ -61,16 +39,16 @@ public class UserService implements Serializable {
     public void setServices(Services services) {
         this.services = services;
     }
-    
-    @ManyToOne
-    private User user;
-    
-    @ManyToOne
+
+    public RegisteredUserServices() {
+    }
+    private String status;
     private Services services;
 
-    public UserService(String status, User user, Services services) {
+    public RegisteredUserServices(int id, String status, Services services) {
+        this.id = id;
         this.status = status;
-        this.user = user;
         this.services = services;
     }
+    
 }
