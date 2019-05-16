@@ -23,6 +23,9 @@ public class Services implements Serializable {
     
     private String name;
 
+    public Services() {
+    }
+
     public Services(String name) {
         this.name = name;
     }
