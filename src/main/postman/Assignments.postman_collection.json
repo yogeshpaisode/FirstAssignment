@@ -93,7 +93,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/userservice/getservices/3",
+					"raw": "http://localhost:8080/userservice/getservices/9",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -102,7 +102,58 @@
 					"path": [
 						"userservice",
 						"getservices",
-						"3"
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Service",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": 10, \"status\": \"inprogress\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/userservice/updateservice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"userservice",
+						"updateservice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/allusers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"allusers"
 					]
 				}
 			},
