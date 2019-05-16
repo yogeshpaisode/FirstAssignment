@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * @author yogesh.paisode
  */
-public class RegisteredUserServices implements Serializable{
+public class RegisteredUserServicesDto implements Serializable{
     
     private int id;
 
@@ -40,12 +40,12 @@ public class RegisteredUserServices implements Serializable{
         this.services = services;
     }
 
-    public RegisteredUserServices() {
+    public RegisteredUserServicesDto() {
     }
     private String status;
     private Services services;
 
-    public RegisteredUserServices(int id, String status, Services services) {
+    public RegisteredUserServicesDto(int id, String status, Services services) {
         this.id = id;
         this.status = status;
         this.services = services;

@@ -27,12 +27,12 @@ public class UserServiceController {
     
     @GetMapping("/getservices/{id}")
     @ResponseBody
-    public List<RegisteredUserServices> getServiceById(@PathVariable int id) {
-        List<RegisteredUserServices> filterUserList = new ArrayList<RegisteredUserServices>();  
+    public List<RegisteredUserServicesDto> getServiceById(@PathVariable int id) {
+        List<RegisteredUserServicesDto> filterUserList = new ArrayList<RegisteredUserServicesDto>();  
         Iterable<UserService> userServices = userServicesRepository.findAll();
         userServices.forEach((service)-> {
             if (service.getUser().getId() == id) {
-                filterUserList.add(new RegisteredUserServices(service.getId(), service.getStatus(), service.getServices()));
+                filterUserList.add(new RegisteredUserServicesDto(service.getId(), service.getStatus(), service.getServices()));
             }
         });
         return filterUserList;
