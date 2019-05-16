@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private UserRepository repository;
     
-    @PostMapping("/addUser")
+    @PostMapping("/adduser")
     @ResponseBody
     public User addUser(@RequestBody UserDto userDto){
         User user = new User(userDto.getFirstName(), 

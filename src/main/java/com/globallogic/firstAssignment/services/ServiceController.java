@@ -23,7 +23,7 @@ public class ServiceController {
    @Autowired
    private ServiceRepository serviceRepository;
     
-   @PostMapping("/addService")
+   @PostMapping("/addservice")
    @ResponseBody
    public Services addService(@RequestBody ServiceDto serviceDto){
        return serviceRepository.save(new Services(serviceDto.getName()));
