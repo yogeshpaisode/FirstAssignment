@@ -7,6 +7,7 @@ package com.globallogic.firstAssignment.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,12 @@ public class ServiceController {
    @ResponseBody
    public Services addService(@RequestBody ServiceDto serviceDto){
        return serviceRepository.save(new Services(serviceDto.getName()));
+   }
+   
+   @GetMapping("/getservices")
+   @ResponseBody
+   public Iterable<Services> getServices(){
+       return serviceRepository.findAll();
    }
     
 }
