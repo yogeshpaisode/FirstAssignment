@@ -42,10 +42,11 @@ public class UserServiceController {
     
     @PutMapping("/updateservice")
     @ResponseBody
-    public UserService updateServiceStatus(@RequestBody UpdateUserServiceDto updateUserServiceDto) {
+    public UpdateUserServiceDto updateServiceStatus(@RequestBody UpdateUserServiceDto updateUserServiceDto) {
         UserService userService = this.userServicesRepository.findById(updateUserServiceDto.getId()).get();
-        userService.setStatus("inprogress");
-        return this.userServicesRepository.save(userService);
+        userService.setStatus(updateUserServiceDto.getStatus());
+        this.userServicesRepository.save(userService);
+        return updateUserServiceDto;
     }
 
 }
