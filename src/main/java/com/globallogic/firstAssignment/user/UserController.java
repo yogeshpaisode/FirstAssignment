@@ -45,7 +45,7 @@ public class UserController {
         for (int i = 0; i < services.length; i ++) {
             UserService userService;
             Services service = serviceRepository.findById(services[i]).get();
-            userService = new UserService("", savedUser, service);
+            userService = new UserService("open", savedUser, service);
             userServicesRepository.save(userService);
         }
         
