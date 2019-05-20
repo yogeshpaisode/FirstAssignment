@@ -1,25 +1,25 @@
 {
 	"info": {
-		"_postman_id": "bb4a0a70-4b71-4a0e-ad6b-98a170c4fe8c",
+		"_postman_id": "7fe16247-b147-463f-85d8-ef27c6521fd0",
 		"name": "Assignments",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Add Service",
+			"name": "Add Service Provider",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
+						"value": "application/json",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\":\"Cook\"}"
+					"raw": "{\"name\":\"service2\"}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/service/addservice",
@@ -50,7 +50,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"firstName\":\"Yogesh\",\n\t\"lastName\":\"Paisode\",\n\t\"email\":\"shshs@hhshs.com\",\n\t\"phone\":\"8550900381\",\n\t\"experiance\":3.9,\n\t\"userName\":\"userName@test\",\n\t\"password\":\"password\",\n\t\"services\":[1, 2, 3]\n}"
+					"raw": "{\n\t\"firstName\":\"Yogesh\",\n\t\"lastName\":\"Paisode\",\n\t\"email\":\"shshs@hhshs.com\",\n\t\"phone\":\"8550900381\",\n\t\"experiance\":3.9,\n\t\"userName\":\"userName@test\",\n\t\"password\":\"password\",\n\t\"services\":[1, 2]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/user/adduser",
@@ -72,10 +72,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8080/service/getservices",
 					"protocol": "http",
@@ -96,12 +92,8 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "http://localhost:8080/userservice/getservices/4",
+					"raw": "http://localhost:8080/userservice/getservices/9",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -110,7 +102,7 @@
 					"path": [
 						"userservice",
 						"getservices",
-						"4"
+						"9"
 					]
 				}
 			},
@@ -130,7 +122,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"id\": 5, \"status\": \"close\"}"
+					"raw": "{\"id\": 10, \"status\": \"inprogress\"}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/userservice/updateservice",
@@ -152,10 +144,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:8080/user/allusers",
 					"protocol": "http",
@@ -172,16 +160,12 @@
 			"response": []
 		},
 		{
-			"name": "Stop All User Services",
+			"name": "Get Service by status",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "http://localhost:8080/userservice/stopallservices/4",
+					"raw": "http://localhost:8080/userservice/servicesbystatus/inprogress",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -189,8 +173,8 @@
 					"port": "8080",
 					"path": [
 						"userservice",
-						"stopallservices",
-						"4"
+						"servicesbystatus",
+						"inprogress"
 					]
 				}
 			},
