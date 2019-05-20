@@ -6,20 +6,20 @@
 	},
 	"item": [
 		{
-			"name": "Add Service Provider",
+			"name": "Add Master Services",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
 						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\":\"service2\"}"
+					"raw": "{\"name\":\"Maid\"}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/service/addservice",
@@ -50,7 +50,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"firstName\":\"Yogesh\",\n\t\"lastName\":\"Paisode\",\n\t\"email\":\"shshs@hhshs.com\",\n\t\"phone\":\"8550900381\",\n\t\"experiance\":3.9,\n\t\"userName\":\"userName@test\",\n\t\"password\":\"password\",\n\t\"services\":[1, 2]\n}"
+					"raw": "{\n\t\"firstName\":\"Yogesh\",\n\t\"lastName\":\"Paisode\",\n\t\"email\":\"shshs@hhshs.com\",\n\t\"phone\":\"8550900381\",\n\t\"experiance\":3.9,\n\t\"userName\":\"userName@test\",\n\t\"password\":\"password\",\n\t\"services\":[2, 3]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/user/adduser",
@@ -68,7 +68,7 @@
 			"response": []
 		},
 		{
-			"name": "Get Services",
+			"name": "Get Master Services",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -93,7 +93,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/userservice/getservices/9",
+					"raw": "http://localhost:8080/userservice/getservices/5",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -102,7 +102,7 @@
 					"path": [
 						"userservice",
 						"getservices",
-						"9"
+						"5"
 					]
 				}
 			},
@@ -122,7 +122,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"id\": 10, \"status\": \"inprogress\"}"
+					"raw": "{\"id\": 6, \"status\": \"inprogress\"}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/userservice/updateservice",
@@ -165,7 +165,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/userservice/servicesbystatus/inprogress",
+					"raw": "http://localhost:8080/userservice/servicesbystatus/open",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -174,7 +174,7 @@
 					"path": [
 						"userservice",
 						"servicesbystatus",
-						"inprogress"
+						"open"
 					]
 				}
 			},
