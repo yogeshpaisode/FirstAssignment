@@ -10,6 +10,8 @@ import com.globallogic.firstAssignment.services.Services;
 import com.globallogic.firstAssignment.userService.UserService;
 import com.globallogic.firstAssignment.userService.UserServicesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,38 +26,47 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(path = "/user")
 public class UserController {
-    
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @Autowired
     private UserRepository userRepository;
-    
+
     @Autowired
     private ServiceRepository serviceRepository;
-    
+
     @Autowired
     private UserServicesRepository userServicesRepository;
-    
+
     @PostMapping("/adduser")
     @ResponseBody
-    public User addUser(@RequestBody UserDto userDto){
-        User user = new User(userDto.getFirstName(), 
+    public User addUser(@RequestBody UserDto userDto) {
+        User user = new User(userDto.getFirstName(),
                 userDto.getLastName(), userDto.getEmail(), userDto.getPhone(),
-                userDto.getExperiance(), userDto.getUserName(), userDto.getPassword());
+                userDto.getExperiance(), userDto.getUserName(), this.passwordEncoder().encode(userDto.getPassword()));
         int[] services = userDto.getServices();
         User savedUser = this.userRepository.save(user);
-        for (int i = 0; i < services.length; i ++) {
+        for (int i = 0; i < services.length; i++) {
             UserService userService;
             Services service = serviceRepository.findById(services[i]).get();
             userService = new UserService("open", savedUser, service);
             userServicesRepository.save(userService);
         }
-        
+
         return savedUser;
     }
-    
+
     @GetMapping("/allusers")
     @ResponseBody
     public Iterable<User> getUsers() {
         return this.userRepository.findAll();
     }
-        
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
+    }
+
 }
