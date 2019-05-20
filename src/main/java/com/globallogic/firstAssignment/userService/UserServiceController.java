@@ -45,6 +45,19 @@ public class UserServiceController {
         return filterUserList;
     }
 
+    @GetMapping("/servicesbystatus/{status}")
+    @ResponseBody
+    public List<RegisteredUserServicesDto> getServiceByStatus(@PathVariable String status) {
+        List<RegisteredUserServicesDto> filterUserList = new ArrayList<RegisteredUserServicesDto>();
+        Iterable<UserService> userServices = userServicesRepository.findAll();
+        userServices.forEach((service) -> {
+            if (service.getStatus().equals(status)) {
+                filterUserList.add(new RegisteredUserServicesDto(service.getId(), service.getStatus(), service.getServices()));
+            }
+        });
+        return filterUserList;
+    }
+
     @PutMapping("/updateservice")
     @ResponseBody
     public UpdateUserServiceDto updateServiceStatus(@RequestBody UpdateUserServiceDto updateUserServiceDto) {
@@ -69,7 +82,7 @@ public class UserServiceController {
                 }
             }
         });
-        
+
         if (this.isServiceInProgress) {
             throw new ResponseStatusException(
                     HttpStatus.FORBIDDEN, "Please close In-Progress service first");
