@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author yogesh.paisode
  */
 @Controller
-@RequestMapping(path = "/test")
+@RequestMapping(path = "/sample")
 public class TestController {
     
-    @GetMapping("/testapi")
+    @GetMapping("/sampleApi")
     public String getTestApi() {
         return "ok";
     }
